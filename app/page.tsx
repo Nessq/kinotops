@@ -1,91 +1,121 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import { DataCard } from '@/@types/card.interface'
+import Card from '@/components/card/Card'
+import Slider from '@/components/slider/Slider'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+const cards: DataCard[] = [
+	{
+		_id: '1',
+		image: '/content/card.jpg',
+		title: 'Самые лучшие подборки 2023 года, которые заставляют задуматься',
+		category: { title: 'Комедия', link: '/category/comedy' },
+		link: '/collections/title',
+		rating: '7.64',
+		isFavorite: false
+	},
+	{
+		_id: '2',
+		image: '/content/card.jpg',
+		title: 'Самые лучшие подборки 2023 года, которые заставляют задуматься',
+		category: { title: 'Комедия', link: '/category/comedy' },
+		link: '/collections/title',
+		rating: '3.64',
+		isFavorite: false
+	},
+	{
+		_id: '3',
+		image: '/content/card.jpg',
+		title: 'Самые лучшие подборки 2023 года, которые заставляют задуматься',
+		category: { title: 'Комедия', link: '/category/comedy' },
+		link: '/collections/title',
+		rating: '9.64',
+		isFavorite: false
+	},
+	{
+		_id: '4',
+		image: '/content/card.jpg',
+		title: 'Самые лучшие подборки 2023 года, которые заставляют задуматься',
+		category: { title: 'Комедия', link: '/category/comedy' },
+		link: '/collections/title',
+		rating: '5.64',
+		isFavorite: false
+	},
+	{
+		_id: '5',
+		image: '/content/card.jpg',
+		title: 'Самые лучшие подборки 2023 года, которые заставляют задуматься',
+		category: { title: 'Комедия', link: '/category/comedy' },
+		link: '/collections/title',
+		rating: '5.64',
+		isFavorite: false
+	}
+]
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+	return (
+		<div className='home'>
+			<div className='container'>
+				<div className='home-main'>
+					<div className='home-main__big'>
+						{[cards[0]].map(item => (
+							<Card
+								key={item._id}
+								image={item.image}
+								title={item.title}
+								link={item.link}
+								type={'all'}
+								category={item.category}
+								size={'big'}
+								// rating={item.rating}
+								showBtn={true}
+							/>
+						))}
+					</div>
+					<div className='home-main__smalls'>
+						{cards.slice(1,4).map(item => (
+							<Card
+								key={item._id}
+								image={item.image}
+								title={item.title}
+								link={item.link}
+								type={'all'}
+								category={item.category}
+								size={'small'}
+								// rating={item.rating}
+								showBtn={false}
+							/>
+						))}
+					</div>
+				</div>
+			</div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+			<div className='home-new'>
+				<div className='container'>
+					<div className='block-top'>
+						<div className='block-title'>Новинки 2023</div>
+						<Link href='/catalog/' className='btn btn--block block-link'>
+							Все новинки 2023
+						</Link>
+					</div>
+					<Slider data={cards} />
+				</div>
+			</div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+			<div className='home-category section-dark'>
+				<div className='container'>
+					<div className='block-top'>
+						<div className='block-title'>Cериалы</div>
+						<Link href='/catalog/' className='btn btn--block btn--block-alternate block-link'>
+							Все новинки 2023
+						</Link>
+					</div>
+
+          
+
+				</div>
+			</div>
+		</div>
+	)
 }

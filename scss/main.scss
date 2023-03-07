@@ -1,0 +1,47 @@
+
+@import './reset';
+@import './variables';
+// plugins
+@import 'swiper/css';
+@import 'swiper/css/scrollbar';
+// ui kit
+@import './ui';
+// module
+@import './components/header';
+@import './components/card';
+
+
+body {
+	font-family: var(--font-fira-sans);
+	font-weight: 400;
+  color: $bg-color;
+}
+
+.container {
+	max-width: 1230px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+
+// layout block
+
+.home-main{
+  display: flex;
+  gap: 1.25rem;
+  margin: 2.5rem 0 3.75rem;
+  &__big{
+    flex: 1;
+  }
+  &__smalls{
+    display: flex;
+    gap: inherit;
+    width: 23.3%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.home-new{
+  margin-bottom: 120px;
+}

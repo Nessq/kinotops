@@ -1,0 +1,125 @@
+.section-dark{
+  background-color: $bg-color;
+  color: $white;
+  padding: 6.25rem 0 7.5rem;
+}
+// block
+.block-top{
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.block-title {
+	font-family: $font-rubik;
+	font-weight: 500;
+	font-size: 2.75rem;
+	line-height: 1.15;
+}
+
+// forms
+
+.text-field {
+	input {
+		background-color: transparent;
+		border: 0;
+		border-bottom: 1px solid $header-input-color;
+		outline: none;
+		width: 100%;
+		padding: 6px 0;
+
+		&::-webkit-search-cancel-button {
+			background-color: #fff;
+		}
+	}
+
+	&.text-field--header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		input {
+			min-width: 140px;
+			color: #fff;
+			font-size: 13px;
+			&::placeholder {
+				color: $header-input-color-placeholder;
+			}
+		}
+	}
+}
+
+// btn
+
+.btn {
+	font-family: $font-rubik;
+	display: inline-flex;
+	gap: 10px;
+	padding: 0.875rem 1.25rem;
+	font-size: 1rem;
+	line-height: 1.1875;
+	text-decoration: none;
+	color: $white;
+	background: $bg-btn;
+	border-radius: $btn-radius;
+	&:hover {
+		background: $bg-btn--hover;
+	}
+	&:focus {
+		background: $bg-btn--focus;
+	}
+}
+.btn.btn--login {
+	background: transparent;
+}
+.btn.btn--register {
+}
+
+.btn.btn--block, .btn.btn--block-alternate {
+	color: $bg-color;
+	border: 2px solid $bg-link;
+  background: transparent;
+  align-items: center;
+	&:after {
+		content: '';
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0.2813rem 0 0.2813rem 0.5rem;
+		border-color: transparent transparent transparent $accent-light;
+	}
+  &:hover{
+    background: $bg-link;
+    color: $white;
+    &:after{
+      border-color: transparent transparent transparent $white;
+    }
+  }
+}
+
+.btn.btn--block-alternate {
+	color: $white;
+}
+
+
+// slider scrollbar
+.swiper-wrapper{
+  padding-bottom: 40px;
+}
+
+.swiper-scrollbar{
+  background-color: transparent;
+  --swiper-scrollbar-size: 3px;
+  --swiper-scrollbar-drag-bg-color: #3385e2;
+  --swiper-scrollbar-sides-offset: 0%;
+  // width: 100%;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba($bg-color, 0.1);
+  }
+}

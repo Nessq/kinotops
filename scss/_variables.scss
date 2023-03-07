@@ -1,0 +1,24 @@
+$bg-color: #123456;
+$white: #ffffff;
+$bg-link: #3385e2;
+
+
+
+$bg-btn: $bg-link;
+$bg-btn--hover: lighten($bg-btn, 4%);
+$bg-btn--focus: darken($bg-btn, 3%);
+$btn-radius: .5rem;
+
+$triangle-color: #2b70bf;
+$accent-light: #007bff;
+
+$header-input-color: #3385E2;
+$header-input-color-placeholder: #2D6DB1;
+
+
+
+$font-fira: var(--font-fira-sans);
+$font-rubik: var(--font-rubik);
+
+
+$transition: 0.25s ease-in-out;
